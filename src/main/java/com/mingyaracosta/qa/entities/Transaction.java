@@ -1,10 +1,12 @@
 package com.mingyaracosta.qa.entities;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
+@Setter
 public class Transaction {
     public enum TransactionType {
         DEPOSIT,
@@ -12,9 +14,9 @@ public class Transaction {
         UNDEFINED
     }
 
-    private final double amount;
-    private final Date transactionDate;
-    private final TransactionType transactionType;
+    private double amount;
+    private Date transactionDate;
+    private TransactionType transactionType;
 
     public Transaction(double amount) {
         this.amount = amount;

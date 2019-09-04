@@ -1,49 +1,36 @@
 package com.mingyaracosta.qa.services;
 
-import com.mingyaracosta.qa.entities.Account;
+import com.mingyaracosta.qa.dto.requests.TransactionReqDto;
+import com.mingyaracosta.qa.dto.responses.AccountDto;
+import com.mingyaracosta.qa.dto.responses.TransactionRespDto;
 import com.mingyaracosta.qa.entities.Transaction;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Component
 public class TransactionService {
-    private static TransactionService instance = new TransactionService();
-    private Account account;
+    @Autowired
+    private ModelMapper modelMapper;
 
-    public static TransactionService getInstance() {
-        return instance;
+    private static TransactionManager transactionManager = TransactionManager.getInstance();
+
+    public AccountDto proccessTransaction(TransactionReqDto transactionReqDto)
+            throws InsufficientBalanceException, BadTransactionAmountException {
+        transactionManager.registerTransaction(new Transaction(transactionReqDto.getAmount()));
+        return new ModelMapper().map(transactionManager.getAccount(), AccountDto.class);
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public List<TransactionRespDto> getTransactions() {
+        List<Transaction> transactions = transactionManager.getTransactions();
+        return transactions
+                .stream()
+                .map(t -> modelMapper.map(t, TransactionRespDto.class))
+                .collect(Collectors.toList());
     }
 
-    public void registerTransaction(Transaction transaction) throws InsufficientBalanceException, BadTransactionAmountException {
-        validateTransactionAmount(transaction);
-        List<Transaction> transactions = account.getTransactions();
-        transactions.add(transaction);
-        updateAccountBalance(transaction);
-    }
 
-    private void validateTransactionAmount(Transaction transaction) throws InsufficientBalanceException, BadTransactionAmountException {
-        if (transaction.getAmount() == 0) {
-            throw new BadTransactionAmountException("The transaction amount can not be 0");
-        }
-        if (transaction.getAmount() * -1 > this.account.getBalance()) {
-            throw new InsufficientBalanceException("Your balance is not big enough");
-        }
-    }
-
-    private void updateAccountBalance(Transaction transaction) {
-        double currentBalance = this.account.getBalance();
-        double newBalance = currentBalance + transaction.getAmount();
-        this.account.setBalance(newBalance);
-    }
-
-    public List<Transaction> getTransactions() {
-        return this.account.getTransactions();
-    }
-
-    public Account getAccount() {
-        return this.account;
-    }
 }

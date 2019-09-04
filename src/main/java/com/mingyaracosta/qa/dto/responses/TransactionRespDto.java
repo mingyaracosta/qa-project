@@ -1,4 +1,4 @@
-package com.mingyaracosta.qa.dto;
+package com.mingyaracosta.qa.dto.responses;
 
 import com.mingyaracosta.qa.entities.Transaction;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class TransactionDto {
+public class TransactionRespDto {
     public enum TransactionType {
         DEPOSIT,
         WITHDRAWAL,
