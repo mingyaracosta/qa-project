@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.mingyaracosta</groupId>
-    <artifactId>qa-assurance-project</artifactId>
+    <artifactId>qa-project</artifactId>
     <version>1.0.0</version>
-    <name>qa-assurance-project</name>
-    <description>SOE´s QA Assurance Project</description>
+    <name>qa-project</name>
+    <description>SOE's QA Assurance Project</description>
 
     <properties>
         <java.version>1.8</java.version>
