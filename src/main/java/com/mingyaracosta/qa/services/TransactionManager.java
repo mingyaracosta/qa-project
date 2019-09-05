@@ -17,11 +17,12 @@ public class TransactionManager {
         this.account = account;
     }
 
-    public void registerTransaction(Transaction transaction) throws InsufficientBalanceException, BadTransactionAmountException {
+    public Transaction registerTransaction(Transaction transaction) throws InsufficientBalanceException, BadTransactionAmountException {
         validateTransactionAmount(transaction);
         List<Transaction> transactions = account.getTransactions();
         transactions.add(transaction);
-        updateAccountBalance(transaction);
+        updateBalance(transaction);
+        return transaction;
     }
 
     private void validateTransactionAmount(Transaction transaction) throws InsufficientBalanceException, BadTransactionAmountException {
@@ -33,9 +34,10 @@ public class TransactionManager {
         }
     }
 
-    private void updateAccountBalance(Transaction transaction) {
+    private void updateBalance(Transaction transaction) {
         double currentBalance = this.account.getBalance();
         double newBalance = currentBalance + transaction.getAmount();
+        transaction.setBalance(newBalance);
         this.account.setBalance(newBalance);
     }
 

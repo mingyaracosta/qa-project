@@ -15,6 +15,7 @@ public class Transaction {
     }
 
     private double amount;
+    private double balance;
     private Date transactionDate;
     private TransactionType transactionType;
 
@@ -29,9 +30,5 @@ public class Transaction {
         } else {
             this.transactionType = TransactionType.UNDEFINED;
         }
-    }
-
-    private void setTransactionType() {
-
     }
 }

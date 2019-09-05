@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Project</title>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/register-transaction.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<h2>Transaction manager</h2>
+<div>
+    <strong>Account Balance:</strong>
+    <label id="account-balance">0.0</label>
+</div>
+<br>
+<div>
+    <form id="form-id">
+        <label for="amount-input">Transaction Amount:</label>
+        <input id="amount-input" type="number"/>
+        <input id="submit-button" type="button" value="Submit Transaction" onclick="submitTransaction()"/>
+    </form>
+</div>
+<br>
+<div id="table-div">
+    <table id="trans-tb" border="1">
+        <thead id="trans-tb-head">
+        <tr>
+            <th>Transaction Date</th>
+            <th>Transaction Type</th>
+            <th>Transaction Amount</th>
+            <th>Transaction Balance</th>
+        </tr>
+        </thead>
+        <tbody id="trans-tb-body"></tbody>
+    </table>
+</div>
+<script type="text/javascript" src="/js/update-table.js"></script>
+</body>
+</html>

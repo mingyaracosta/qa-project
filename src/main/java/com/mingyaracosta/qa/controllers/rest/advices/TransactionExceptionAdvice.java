@@ -1,4 +1,4 @@
-package com.mingyaracosta.qa.controllers.advices;
+package com.mingyaracosta.qa.controllers.rest.advices;
 
 import com.mingyaracosta.qa.services.BadTransactionAmountException;
 import com.mingyaracosta.qa.services.InsufficientBalanceException;

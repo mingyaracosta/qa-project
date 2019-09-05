@@ -16,6 +16,7 @@ public class TransactionRespDto {
     }
 
     private double amount;
+    private double balance;
     private Date transactionDate;
     private Transaction.TransactionType transactionType;
 
