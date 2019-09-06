@@ -1,5 +1,5 @@
 function submitTransaction() {
-    var transactionAmount = parseFloat(document.getElementById("amount-input").value);
+    let transactionAmount = parseFloat(document.getElementById("amount-input").value);
     if (isNaN(transactionAmount)) {
         return;
     }
@@ -16,10 +16,12 @@ function submitTransaction() {
 }
 
 function onSuccessPost(response) {
-    var table = document.getElementById("trans-tb");
+    let table = document.getElementById("trans-tb");
     addFirstRow(table, response);
-    var accountBalanceLabel = document.getElementById("account-balance");
+    let accountBalanceLabel = document.getElementById("account-balance");
     accountBalanceLabel.innerHTML = response.balance;
+    let lastTransactionLabel = document.getElementById("last-transaction-amount-label");
+    lastTransactionLabel.innerHTML = response.amount;
 }
 
 function onErrorPost(response) {
