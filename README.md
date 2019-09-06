@@ -1,4 +1,4 @@
-# El juego de la vida de Conway - Wilton Mingyar Acosta Choclo
+# QA Project
 
 El presente repositorio es la solución al proyecto final del módulo 3 de la Maestría
 en Dirección Estratégica en Ingeniería de Software, la misma está escrita en JAVA y fue
