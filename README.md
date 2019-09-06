@@ -14,7 +14,7 @@ para estas últimas.
 indicando el archivo pom.xml)
 3. Actualizar su repositorio Maven localpara que contenga las dependencias del proyecto.
 4. Puede ejecutar las pruebas una a una (por métodos) o por grupos de pruebas
-(por clase), las pruebas se encuentran en la carpeta [Test](src/test/java/com/mingyaracosta/qa)
+(por clase) en su IDE de preferencia. Las pruebas se encuentran en la carpeta [Test](src/test/java/com/mingyaracosta/qa)
 6. Para ejecutar el proyecto desde su IDE, debe indicar que la clase [QAProjectApplication](src/main/java/com/mingyaracosta/qa/QAProjectApplication.java)
 es la clase principal.
 5. Para ejecutar las pruebas de integración y UI debe primero instalar las 
@@ -27,7 +27,7 @@ la carpeta [bdd](bdd), a continuación ejecute los siguientes comandos:
 - npm install selenium-webdriver --save
 - npm install chromedriver --global
 
-La ejecución de la pruebas se realiza ejecutando el siguient4e comando:
+La ejecución de las pruebas se realiza ejecutando el siguiente comando:
 - ./node_modules/.bin/cucumber-js
 
 ### Cómo levantar el servidor
